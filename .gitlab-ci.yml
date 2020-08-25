@@ -1,0 +1,14 @@
+---
+stages:
+  - release
+
+variables:
+  GITLAB_TOKEN: $GITLAB_API_TOKEN_GC
+
+release:
+  stage: release
+  image: goreleaser/goreleaser:latest
+  script:
+    - goreleaser --rm-dist
+  only:
+    - tags
